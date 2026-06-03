@@ -1,8 +1,6 @@
 package com.fiap.ec.missaoespecial.service;
 
-import com.fiap.ec.missaoespecial.model.Especialidade;
 import com.fiap.ec.missaoespecial.model.Missao;
-import com.fiap.ec.missaoespecial.repository.EspecialidadeRepository;
 import com.fiap.ec.missaoespecial.repository.MissaoRepository;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +31,7 @@ public class MissaoService {
         Missao missaoExistente = buscarPorId(id);
         missaoExistente.setNome(missaoAtualizado.getNome());
         missaoExistente.setDescricao(missaoAtualizado.getDescricao());
-        missaoExistente.setStatus(missaoAtualizado.setStatus());
+        missaoExistente.setStatus(missaoAtualizado.getStatus());
         missaoExistente.setModulos(missaoAtualizado.getModulos());
         missaoExistente.setSensores(missaoAtualizado.getSensores());
 
