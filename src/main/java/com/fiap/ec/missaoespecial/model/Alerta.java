@@ -30,5 +30,6 @@ public class Alerta {
     private Sensor sensor;
 
     @CreatedDate
+    @Column(name = "created_at")
     private Date createdAt;
 }

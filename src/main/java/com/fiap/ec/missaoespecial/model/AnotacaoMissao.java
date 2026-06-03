@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
 
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -22,11 +24,7 @@ public class AnotacaoMissao {
 
     private String descricao;
 
-    private String status;
-
-    @ManyToMany
-    private List<Modulo> modulos;
-
-    @ManyToMany
-    private List<Sensor> sensores;
+    @CreatedDate
+    @Column(name = "created_at")
+    private Date createdAt;
 }
