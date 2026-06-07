@@ -7,6 +7,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Date;
 
 @Configuration
@@ -50,12 +51,14 @@ public class DataInitializer implements CommandLineRunner {
         // 4. Criar Miss�o
         Missao missaoArtemis = new Missao(null, "Missão Artemis I", "Retorno à Lua", "EM_ANDAMENTO",
                 Arrays.asList(moduloComando, moduloServico), 
-                Arrays.asList(sensorPressao, sensorTemp, sensorO2));
+                Arrays.asList(sensorPressao, sensorTemp, sensorO2),
+                Collections.emptyList()
+        );
         missaoRepository.save(missaoArtemis);
 
         // 5. Criar Anota��es
-        AnotacaoMissao anotacao1 = new AnotacaoMissao(null, "Lançamento", "Lançamento executado com sucesso às 08:00", new Date());
-        AnotacaoMissao anotacao2 = new AnotacaoMissao(null, "Anomalia", "Anomalia térmica detectada no Módulo de Serviço", new Date());
+        AnotacaoMissao anotacao1 = new AnotacaoMissao(null, "Lançamento", "Lançamento executado com sucesso às 08:00", missaoArtemis, new Date());
+        AnotacaoMissao anotacao2 = new AnotacaoMissao(null, "Anomalia", "Anomalia térmica detectada no Módulo de Serviço", missaoArtemis, new Date());
         anotacaoRepository.saveAll(Arrays.asList(anotacao1, anotacao2));
 
         System.out.println("Dados de exemplo inicializados com sucesso!");

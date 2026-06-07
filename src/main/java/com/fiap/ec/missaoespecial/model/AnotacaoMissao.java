@@ -24,6 +24,9 @@ public class AnotacaoMissao {
 
     private String descricao;
 
+    @ManyToOne
+    private Missao missao;
+
     @CreatedDate
     @Column(name = "created_at")
     private Date createdAt;

@@ -29,4 +29,7 @@ public class Missao {
 
     @ManyToMany
     private List<Sensor> sensores;
+
+    @OneToMany
+    private List<AnotacaoMissao> anotacoes;
 }
